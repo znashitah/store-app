@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-gray-50;
+}
+
+.btn-primary {
+  @apply px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition;
+}
+
+.btn-secondary {
+  @apply px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition;
+}
+
+.card {
+  @apply bg-white rounded shadow-md p-4;
+}
+
+.input-field {
+  @apply w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500;
+}
