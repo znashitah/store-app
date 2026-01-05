@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { productService } from '../services/api';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addToCart } from '../store/cartSlice';
-import { Product } from '../types';
+import  type { Product } from '../types';
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();

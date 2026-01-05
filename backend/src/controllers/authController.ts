@@ -31,7 +31,7 @@ export const register = async (
     
     // Create JWT token
     const token = jwt.sign(
-      { userId: user.id, email: user.email },
+      { id: user.id, email: user.email },
       JWT_SECRET,
       { expiresIn: '7d' }
     );
@@ -84,7 +84,7 @@ export const login = async (
 
     // Create JWT token
     const token = jwt.sign(
-      { userId: user.id, email: user.email },
+      { id: user.id, email: user.email },
       JWT_SECRET,
       { expiresIn: '7d' }
     );

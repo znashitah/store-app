@@ -1,7 +1,7 @@
-import axios, { AxiosInstance } from 'axios';
-import { AuthResponse, ProductsResponse, OrdersResponse } from '../types';
+import axios, { type  AxiosInstance } from 'axios';
+import  type { AuthResponse, ProductsResponse, OrdersResponse } from '../types';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5002/api';
 
 const api: AxiosInstance = axios.create({
   baseURL: API_URL,
