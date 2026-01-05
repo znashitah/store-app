@@ -10,7 +10,10 @@ import productRoutes from './routes/productRoutes';
 import orderRoutes from './routes/orderRoutes';
 
 dotenv.config();
-
+// ✅ FIX 4 GOES HERE
+if (!process.env.JWT_SECRET) {
+  throw new Error('JWT_SECRET is not defined in environment variables')
+}
 const app: Express = express();
 const PORT = process.env.PORT || 5000;
 

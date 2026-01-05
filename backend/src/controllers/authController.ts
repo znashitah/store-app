@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
 import bcryptjs from 'bcryptjs';
-import jwt from 'jsonwebtoken';
 import { findUserByEmail, createUser, findUserById } from '../models/userModel';
 import { ApiResponse, User } from '../types';
+import jwt, { Secret } from 'jsonwebtoken';
+const JWT_SECRET: Secret = process.env.JWT_SECRET as Secret
 
 export const register = async (
   req: Request,
@@ -27,11 +28,12 @@ export const register = async (
     // Create user
     const user = await createUser(email, hashedPassword);
 
+    
     // Create JWT token
     const token = jwt.sign(
-      { id: user.id, email: user.email },
-      process.env.JWT_SECRET || 'default_secret',
-      { expiresIn: process.env.JWT_EXPIRE || '7d' }
+      { userId: user.id, email: user.email },
+      JWT_SECRET,
+      { expiresIn: '7d' }
     );
 
     res.status(201).json({
@@ -82,9 +84,9 @@ export const login = async (
 
     // Create JWT token
     const token = jwt.sign(
-      { id: user.id, email: user.email },
-      process.env.JWT_SECRET || 'default_secret',
-      { expiresIn: process.env.JWT_EXPIRE || '7d' }
+      { userId: user.id, email: user.email },
+      JWT_SECRET,
+      { expiresIn: '7d' }
     );
 
     res.json({
