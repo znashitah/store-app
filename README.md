@@ -34,7 +34,7 @@ it is running on localhost: 5002.
    # to run backend
    go to folder pwd or cd : /Users/nashitahzainab/Desktop/6Semester/WebProgramming/store-app/backend 
 
-   run command npm run dev 
+   run command: npm run dev 
    # main file 
 
   # env file frontend
@@ -57,7 +57,7 @@ JWT_EXPIRE=7d
 # to run frontend
    go to folder pwd or cd : /Users/nashitahzainab/Desktop/6Semester/WebProgramming/store-app/frontend
 
-   run command npm run dev 
+   run command: npm run dev 
 # CORS
 FRONTEND_URL=http://localhost:5173 
 # Token for testing api of backend using post man. 

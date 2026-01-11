@@ -14,7 +14,17 @@ export default function Orders() {
   const fetchOrders = async () => {
     try {
       const response = await orderService.getOrders();
-      setOrders(response.data);
+      //setOrders(response.data);
+      // Map backend fields to frontend camelCase + convert strings to number
+    const mappedOrders: Order[] = response.data.map((order: any) => ({
+      id: order.id,
+      userId: order.user_id,
+      items: order.items,
+      totalPrice: parseFloat(order.total_price), // <-- convert string to number
+      status: order.status,
+      createdAt: order.created_at,
+    }));
+    setOrders(mappedOrders);
     } catch (error) {
       console.error('Failed to fetch orders:', error);
     } finally {
